@@ -15,9 +15,9 @@ Ltmp2:
 	.cfi_def_cfa_register %rbp
 	subq	$16, %rsp
 	leaq	L_.str(%rip), %rdi
-	movl	$5, -4(%rbp)
+movl	$5, -4(%rbp)                    ## REFER TO X=5
 	movl	-4(%rbp), %eax
-	addl	$1, %eax
+addl	$1, %eax                        ## REFER TO Y=X+1
 	movl	%eax, -8(%rbp)
 	movl	-8(%rbp), %esi
 	movb	$0, %al
