@@ -5,19 +5,24 @@
 
 1) Give an example of a feature common in interpreted languages that is rare in compiled languages.
 
+Interpreted languages usually support dynamic types but compiled languages usually don't. Compiled languages are mostly limited to static types.
+
 2) Name two advantages of static typing over dynamic typing.
+Static typing checks the error in compile time, but dynamic typing requires run time.
+Static typing makes it clear what type of the variable is but dynamic typing does not.
 
 3) Give an example of a static semantic error.
-
+int a = "hello";
 4) What are two reasons you might want to turn off code optimization?
-
+If the program has a minor bug, using optimization might makes it appear or disappear.
+Turning on optimization might requre higher compile time.
 5) When you run `gcc` with `-S`, why might the results look different on different computers?
-
+gcc is configured differently for different machines(processors).
 6) If you spell a variable name wrong, or if you spell a function name wrong, 
 the error messages you get might look very different.  Why?
-
+Misspelling a variable name results in error in compiler, while misspelling a function name results in error in linker.
 7) What is a segmentation fault?
-
+It happens when trying to read or write an incorrect location in memory.
 
 ## Chapter 2
 
@@ -25,15 +30,16 @@ the error messages you get might look very different.  Why?
 ### Processes
 
 1) Give a real-world example of virtualization (ideally not one of the ones in the book).
-
+When applying to a school, after I turn in my resume, a lot of staff working in the admission office might look at it, and finally 
+gets to the dean's hand. But I only get offer from the dean of admission office, which looks like there is a direct connection between me and the dean.
 2) What is the difference between a program and a process?
-
+Processes isolates each running program from the others, and a program can launch multiple processes.
 3) What is the primary purpose of the process abstraction?  What illusion does the process abstraction create?
-
+All processes share the same device, but they make each program to think that it is running on its own machine. It avoids unexpected chaos when processes try to interact with hardware.
 4) What is the kernel?
-
+Kernel is a part of the operating systems responsible for creating threads.
 5) What is a daemon?
- 
+Daemon is a processes running in background and providing operating system services.
 
 ## Chapter 3
 
