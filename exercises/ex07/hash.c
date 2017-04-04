@@ -3,6 +3,7 @@
 Copyright 2016 Allen Downey
 License: Creative Commons Attribution-ShareAlike 3.0
 
+Modified by: Bill Du
 */
 
 #include <stdio.h>
