@@ -31,6 +31,16 @@ gint compare_pair (gpointer v1, gpointer v2, gpointer user_data)
     return p1->freq - p2->freq;
 }
 
+/* Removes a pair */
+void remove_pair(gpointer v){
+    g_free((Pair *)v);
+}
+
+/* Removes an element from a hashtable */
+void remove_element(gpointer k, gpointer v){
+    g_free((gchar *)k);
+    g_free((gint *)v);
+}
 
 /* Iterator that prints pairs. */
 void pair_printor (gpointer value, gpointer user_data)
@@ -108,6 +118,7 @@ int main (int argc, char** argv)
 	for (i=0; array[i] != NULL; i++) {
 	    incr(hash, array[i]);
 	}
+    g_strfreev(array);
     }
     fclose (fp);
 
@@ -123,6 +134,8 @@ int main (int argc, char** argv)
 
     // try (unsuccessfully) to free everything
     // (in a future exercise, we will fix the memory leaks)
+    g_hash_table_foreach(hash, (GHFunc) remove_element, NULL);
+    g_sequence_foreach(seq, (GFunc)remove_pair, NULL);
     g_hash_table_destroy (hash);
     g_sequence_free (seq);
 

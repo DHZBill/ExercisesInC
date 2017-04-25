@@ -42,7 +42,7 @@ int pop(Node **head) {
     next_node = (*head)->next;
     retval = (*head)->val;
     *head = next_node;
-
+    free(*next_node);
     return retval;
 }
 
@@ -71,6 +71,7 @@ int remove_by_value(Node **head, int val) {
 	if (node->next->val == val) {
 	    victim = node->next;
 	    node->next = victim->next;
+        free(victim);
 	    return 1;
 	}
     }
@@ -96,6 +97,9 @@ void reverse(Node **head) {
 	next = temp;
     }
     *head = node;
+
+    free(temp);
+    free(next);
 }
 
 // Adds a new element to the list before the indexed element.
